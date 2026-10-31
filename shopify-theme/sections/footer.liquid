@@ -1,0 +1,76 @@
+<footer class="bg-slate-950 text-slate-400 text-xs border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <!-- Col 1: Brand & License -->
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold">
+            🩺
+          </div>
+          <span class="text-base font-black text-white">Vital<span class="text-emerald-500">GLP</span></span>
+        </div>
+        <p class="text-slate-400 text-[11px] leading-relaxed">
+          Plateforme européenne agréée de délivrance de traitements GLP-1 pour la gestion du poids sous supervision médicale.
+        </p>
+        <div class="text-[10px] text-emerald-400 font-medium">
+          {{ settings.pharmacy_license | default: 'Pharmacie En Ligne Enregistrée UE n° 441029' }}
+        </div>
+      </div>
+
+      <!-- Col 2: Traitements -->
+      <div class="space-y-2">
+        <h4 class="font-bold text-white text-xs uppercase tracking-wider">Traitements Disponibles</h4>
+        <ul class="space-y-1.5 text-[11px]">
+          <li><a href="#catalogue" class="hover:text-emerald-400 transition-colors">Wegovy® FlexTouch® (Sémaglutide)</a></li>
+          <li><a href="#catalogue" class="hover:text-emerald-400 transition-colors">Mounjaro® KwikPen® (Tirzépatide)</a></li>
+          <li><a href="#catalogue" class="hover:text-emerald-400 transition-colors">Zepbound™ Auto-Injector (Tirzépatide)</a></li>
+          <li><a href="#bundles" class="hover:text-emerald-400 transition-colors">Packs Cures 1, 2 et 5 Boîtes (-30%)</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Sécurité & Froid -->
+      <div class="space-y-2">
+        <h4 class="font-bold text-white text-xs uppercase tracking-wider">Normes & Expédition</h4>
+        <ul class="space-y-1.5 text-[11px]">
+          <li>❄️ Transport frigorifique 2°C &agrave; 8°C Chronofresh</li>
+          <li>🛡️ Emballages pharmaceutiques scellés</li>
+          <li>📋 Vérification médicale systématique</li>
+          <li>🚚 Expédition sous 24h ouvrées</li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact & Support -->
+      <div class="space-y-2">
+        <h4 class="font-bold text-white text-xs uppercase tracking-wider">Contact Pharmacien</h4>
+        <p class="text-[11px]">Une question sur votre posologie ou votre commande ?</p>
+        <a href="mailto:{{ settings.support_email | default: 'contact-fr@vivami.co' }}" class="text-emerald-400 font-bold hover:underline block">
+          {{ settings.support_email | default: 'contact-fr@vivami.co' }}
+        </a>
+        <div class="pt-2">
+          {% render 'trustpilot-badge', class: 'text-white' %}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Legal -->
+    <div class="mt-8 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-slate-500">
+      <div>
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Tous droits réservés. Traitements délivrés par une officine habilitée.
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-slate-300">Mentions légales</a>
+        <a href="#" class="hover:text-slate-300">Politique de confidentialité</a>
+        <a href="#" class="hover:text-slate-300">Conditions Générales de Vente</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pied de page",
+  "settings": []
+}
+{% endschema %}

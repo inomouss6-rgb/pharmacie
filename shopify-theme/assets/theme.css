@@ -1,0 +1,49 @@
+/* VitalGLP Vivami Pro 2.0 Theme Stylesheet */
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Bundle active state */
+.bundle-tier-btn.active-tier {
+  border-color: #059669 !important;
+  background-color: #ecfdf5 !important;
+  color: #064e3b !important;
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.2);
+}
+
+/* Aspect ratio polyfill fallback */
+.aspect-3\/4 {
+  aspect-ratio: 3 / 4;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbars for cart drawer */
+#CartDrawerItems::-webkit-scrollbar {
+  width: 5px;
+}
+#CartDrawerItems::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+#CartDrawerItems::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+#CartDrawerItems::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

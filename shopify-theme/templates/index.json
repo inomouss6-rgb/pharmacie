@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "settings": {}
+    },
+    "hero_vivami": {
+      "type": "hero-vivami",
+      "settings": {}
+    },
+    "before_after_gallery": {
+      "type": "before-after-gallery",
+      "settings": {}
+    },
+    "trustpilot_ticker": {
+      "type": "trustpilot-ticker",
+      "settings": {}
+    },
+    "pink_reassurance_banner": {
+      "type": "pink-reassurance-banner",
+      "settings": {}
+    },
+    "product_bundle_grid": {
+      "type": "product-bundle-grid",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    },
+    "trust_banner": {
+      "type": "trust-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement_bar",
+    "hero_vivami",
+    "before_after_gallery",
+    "trustpilot_ticker",
+    "pink_reassurance_banner",
+    "product_bundle_grid",
+    "faq",
+    "trust_banner"
+  ]
+}

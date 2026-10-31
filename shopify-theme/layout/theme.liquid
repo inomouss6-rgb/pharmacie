@@ -1,0 +1,74 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
+    <meta name="theme-color" content="#065f46">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#ecfdf5',
+                100: '#d1fae5',
+                500: '#10b981',
+                600: '#059669',
+                700: '#047857',
+                800: '#065f46',
+                900: '#064e3b',
+              }
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; {{ 'general.meta.tags' | t: tags: current_tags.first }}{% endif -%}
+      {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {{ content_for_header }}
+
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body class="bg-white text-slate-900 font-sans antialiased selection:bg-emerald-500 selection:text-white min-h-screen flex flex-col">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-emerald-600 text-white px-4 py-2 rounded-lg" href="#MainContent">
+      {{ 'accessibility.skip_to_content' | t | default: 'Aller au contenu principal' }}
+    </a>
+
+    {% section 'announcement-bar' %}
+    {% section 'header' %}
+
+    <main id="MainContent" class="flex-grow focus:outline-none" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
+    {% render 'cart-drawer' %}
+
+    {{ 'theme.js' | asset_url | script_tag }}
+  </body>
+</html>

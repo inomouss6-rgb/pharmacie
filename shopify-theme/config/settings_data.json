@@ -1,0 +1,15 @@
+{
+  "current": {
+    "color_primary": "#059669",
+    "color_secondary": "#064e3b",
+    "color_accent": "#f59e0b",
+    "color_urgency": "#ef4444",
+    "enable_urgency_timer": true,
+    "urgency_text": "Offre flash expire dans :",
+    "urgency_minutes": 14,
+    "support_email": "contact-fr@vivami.co",
+    "pharmacy_license": "Pharmacie En Ligne Enregistrée UE n° 441029",
+    "trustpilot_score": "4,6 / 5",
+    "trustpilot_review_count": "7 426 clients"
+  }
+}

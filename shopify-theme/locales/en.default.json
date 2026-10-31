@@ -1,0 +1,54 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "currency": "€",
+    "share": "Share",
+    "search": "Search treatments...",
+    "continue_shopping": "Continue shopping"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "close": "Close"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "buy_now": "Order Now",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "quantity": "Quantity",
+      "dosage": "Dosage",
+      "pack_1": "1 pen (1 month supply)",
+      "pack_2": "2 pens (2 months supply - Save 15%)",
+      "pack_5": "5 pens (5 months supply - Save 30%)",
+      "per_month": "/ month",
+      "clinical_proven": "Clinically proven efficacy",
+      "cold_chain_warning": "Cold chain 2-8°C shipping guaranteed with insulated Chronofresh packaging."
+    }
+  },
+  "cart": {
+    "title": "Your Secure Medical Cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "shipping_at_checkout": "Shipping calculated at checkout",
+    "free_shipping_eligible": "Congratulations! You qualified for Free Express Cold-Chain Shipping 🚚",
+    "free_shipping_threshold": "Add a 2nd pen to unlock free shipping!",
+    "checkout": "Proceed to Secure Checkout",
+    "view_cart": "View cart",
+    "terms_note": "Medical validation by a licensed pharmacist required prior to dispatch."
+  },
+  "urgency": {
+    "flash_title": "Flash offer expires in:",
+    "low_stock": "High demand: Only a few pens left at this price today!"
+  },
+  "trust": {
+    "trustpilot_title": "Excellent on Trustpilot",
+    "secure_payment_title": "100% Secure & Protected Payment",
+    "delivery_guarantee": "All orders placed on our website are shipped under cold chain 2-8°C within 24/48h."
+  }
+}

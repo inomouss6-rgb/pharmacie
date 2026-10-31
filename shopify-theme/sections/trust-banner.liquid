@@ -1,0 +1,59 @@
+<section class="bg-[#1f1f1f] text-white py-12 px-4 border-t border-slate-800">
+  <div class="max-w-xl mx-auto text-center space-y-6">
+    
+    <!-- Email contact -->
+    <a href="mailto:contact-fr@vivami.co" class="inline-flex items-center gap-2 text-slate-200 hover:text-white transition-colors text-sm sm:text-base font-medium">
+      <svg class="w-5 h-5 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+      </svg>
+      <span class="tracking-wide">contact-fr@vivami.co</span>
+    </a>
+
+    <!-- Trustpilot Logo & Score -->
+    <div class="space-y-3 pt-2">
+      <div class="inline-flex items-center gap-2">
+        <svg class="w-6 h-6 text-[#00b67a] fill-current" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+        </svg>
+        <span class="text-xl sm:text-2xl font-black text-white tracking-tight">Trustpilot</span>
+      </div>
+
+      <!-- 5 Green Stars -->
+      <div class="flex items-center justify-center gap-1">
+        {% for i in (1..5) %}
+          <div class="w-7 h-7 sm:w-8 sm:h-8 bg-[#00b67a] flex items-center justify-center rounded-xs shadow-md">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white fill-current" viewBox="0 0 24 24">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="text-xl sm:text-2xl font-extrabold text-white pt-1">
+        Excellent
+      </div>
+
+      <p class="text-xs sm:text-sm text-slate-300">
+        Score de confiance <span class="text-[#00b67a] font-bold underline">4,6</span> | <span class="font-bold text-white">7426 clients</span>
+      </p>
+    </div>
+
+    <!-- Payment Badges: PayPal, Transcash, Google, Apple Gift, Virement, Visa, Mastercard -->
+    <div class="pt-4">
+      {% render 'payment-icons' %}
+    </div>
+
+    <!-- Official Shipping & Logistics Statement -->
+    <p class="text-xs text-slate-400 max-w-md mx-auto leading-relaxed pt-2">
+      Toutes les commandes effectuées sur notre site sont expédiées par un service de logistique désigné par le patient en deux jours ouvrés.
+    </p>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bannière Confiance & Avis",
+  "settings": []
+}
+{% endschema %}

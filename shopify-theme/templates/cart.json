@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {}
+    },
+    "trust_banner": {
+      "type": "trust-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "trust_banner"
+  ]
+}

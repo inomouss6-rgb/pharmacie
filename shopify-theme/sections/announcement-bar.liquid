@@ -1,0 +1,64 @@
+<div class="bg-emerald-800 text-white text-xs font-semibold py-2 overflow-hidden border-b border-emerald-900/60 shadow-inner relative select-none">
+  <div class="relative w-full overflow-hidden">
+    <!-- Subtle gradient edges -->
+    <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-emerald-800 to-transparent z-10"></div>
+    <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-emerald-800 to-transparent z-10"></div>
+
+    <div class="animate-marquee flex items-center gap-8 whitespace-nowrap">
+      {% for i in (1..3) %}
+        <div class="flex items-center gap-2 text-white">
+          <span class="bg-amber-400 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded uppercase tracking-wider shadow-2xs">
+            {{ section.settings.badge_text | default: 'OFFRE DU JOUR' }}
+          </span>
+          <span class="font-extrabold tracking-wide text-amber-200">
+            🚚 {{ section.settings.promo_text | default: 'LIVRAISON GRATUITE OFFERTE POUR 2 ACHETÉS' }}
+          </span>
+          <span class="text-emerald-300 font-normal">(Économie immédiate de 19,90 €)</span>
+        </div>
+
+        <span class="text-emerald-400/80 font-bold">✦</span>
+
+        <div class="flex items-center gap-1.5 text-emerald-100">
+          <span class="text-base">❄️</span>
+          <span>Expédition Chronofresh sous chaîne du froid 2-8°C garantie sous 24h</span>
+        </div>
+
+        <span class="text-emerald-400/80 font-bold">✦</span>
+
+        <div class="flex items-center gap-1.5 text-amber-200 font-bold">
+          <span class="text-base">🎁</span>
+          <span>Pochette isotherme nomade thermo-isolée offerte dès 2 boîtes</span>
+        </div>
+
+        <span class="text-emerald-400/80 font-bold">✦</span>
+
+        <div class="flex items-center gap-1.5 text-white">
+          <span class="text-base">⚡</span>
+          <span>Packs Bundles : Jusqu'à <strong>-30% de remise</strong> sur votre cure complète</span>
+        </div>
+
+        <span class="text-emerald-400/80 font-bold">✦</span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Barre d'Annonces",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texte du badge",
+      "default": "OFFRE DU JOUR"
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "label": "Texte promotionnel",
+      "default": "LIVRAISON GRATUITE OFFERTE POUR 2 ACHETÉS"
+    }
+  ]
+}
+{% endschema %}

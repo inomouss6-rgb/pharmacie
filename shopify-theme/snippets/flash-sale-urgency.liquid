@@ -1,0 +1,7 @@
+<div class="flash-sale-timer-wrap inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-rose-50 to-amber-50 border border-rose-200/80 rounded-full text-[11px] sm:text-xs font-bold text-rose-700 shadow-2xs {{ class }}" data-seconds="{{ seconds | default: 874 }}">
+  <span class="inline-block w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+  <span class="text-rose-800 font-bold whitespace-nowrap">{{ 'urgency.flash_title' | t | default: 'Offre flash expire dans :' }}</span>
+  <span class="flash-sale-display font-mono font-black text-rose-950 bg-white/90 px-2 py-0.5 rounded shadow-inner border border-rose-300">
+    14:34
+  </span>
+</div>

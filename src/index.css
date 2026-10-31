@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-slow {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+  }
+
+  .animate-header-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 24s linear infinite;
+  }
+
+  .animate-marquee-slow {
+    display: flex;
+    width: max-content;
+    animation: marquee-slow 48s linear infinite;
+  }
+
+  .animate-marquee:hover,
+  .animate-header-marquee:hover,
+  .animate-marquee-slow:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

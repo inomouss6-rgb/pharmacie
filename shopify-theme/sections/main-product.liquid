@@ -1,0 +1,161 @@
+<section class="py-12 bg-white max-w-7xl mx-auto px-4 sm:px-6">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+    
+    <!-- Product Gallery -->
+    <div class="lg:col-span-6 bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 flex flex-col items-center justify-center">
+      <div class="relative w-full max-w-md aspect-square flex items-center justify-center">
+        {% if product.featured_image != blank %}
+          <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}" class="max-h-full object-contain mix-blend-multiply">
+        {% else %}
+          <img src="{{ '436_1_14ba29ab.jpeg' | asset_url }}" alt="{{ product.title | escape }}" class="max-h-full object-contain mix-blend-multiply">
+        {% endif %}
+      </div>
+
+      <!-- Trust Badges below image -->
+      <div class="mt-6 grid grid-cols-3 gap-2 w-full text-center text-[11px] font-bold text-slate-700">
+        <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-2xs">
+          <span class="block text-base mb-0.5">❄️</span>
+          <span>Chaîne Froid 2-8°C</span>
+        </div>
+        <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-2xs">
+          <span class="block text-base mb-0.5">🛡️</span>
+          <span>100% Original Scellé</span>
+        </div>
+        <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-2xs">
+          <span class="block text-base mb-0.5">🚚</span>
+          <span>Chrono 24/48h</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Purchase Options -->
+    <div class="lg:col-span-6 space-y-6">
+      
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            Traitement Officiel GLP-1
+          </span>
+          {% render 'flash-sale-urgency' %}
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          {{ product.title }}
+        </h1>
+
+        <div class="mt-2 flex items-center gap-3">
+          {% render 'trustpilot-badge' %}
+        </div>
+      </div>
+
+      <!-- Price Block -->
+      <div class="p-4 bg-emerald-50/70 border border-emerald-200 rounded-2xl flex items-center justify-between">
+        <div>
+          <span class="text-xs text-emerald-800 font-bold block">Prix du traitement :</span>
+          <div class="text-2xl sm:text-3xl font-black text-emerald-900">
+            {{ product.selected_or_first_available_variant.price | money }}
+          </div>
+        </div>
+        <div class="text-right">
+          <span class="inline-block bg-amber-400 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded uppercase">
+            Économie pack
+          </span>
+          <p class="text-[11px] text-emerald-700 font-bold mt-1">Livraison offerte dès 2 boîtes</p>
+        </div>
+      </div>
+
+      <!-- Native Shopify Product Form with Bundle Tier Selection -->
+      {% form 'product', product, id: 'MainProductForm', class: 'space-y-5' %}
+        
+        <!-- Dosage selection -->
+        {% if product.variants.size > 1 %}
+          <div>
+            <label class="block text-xs font-bold text-slate-900 mb-2 uppercase tracking-wide">
+              1. Choisissez votre dosage médical :
+            </label>
+            <select name="id" class="w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 cursor-pointer">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
+                  {{ variant.title }} &ndash; {{ variant.price | money }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+        {% else %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {% endif %}
+
+        <!-- Bundle Pack Selector (1, 2, 5 boxes) -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <label class="text-xs font-bold text-slate-900 uppercase tracking-wide">
+              2. Choisissez la durée de cure :
+            </label>
+            <span class="text-[11px] text-emerald-700 font-bold">Jusqu'à -30%</span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2.5">
+            <!-- 1 box -->
+            <button type="button" class="bundle-tier-btn p-3 rounded-xl border border-slate-200 hover:border-slate-300 text-center transition-all cursor-pointer" data-qty="1">
+              <span class="block text-xs font-bold text-slate-800">1 Boîte</span>
+              <span class="block text-[10px] text-slate-500">1 mois de cure</span>
+              <span class="block text-[10px] font-bold text-slate-400 mt-1">Tarif de base</span>
+            </button>
+
+            <!-- 2 boxes (Popular) -->
+            <button type="button" class="bundle-tier-btn p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 text-center transition-all ring-2 ring-emerald-600/20 active-tier cursor-pointer" data-qty="2">
+              <div class="inline-block bg-amber-400 text-slate-950 text-[9px] font-black px-1.5 py-0.2 rounded-xs uppercase tracking-tight mb-1">
+                Recommandé
+              </div>
+              <span class="block text-xs font-extrabold text-emerald-950">2 Boîtes</span>
+              <span class="block text-[10px] text-emerald-800 font-semibold">2 mois de cure</span>
+              <span class="block text-[10px] font-black text-emerald-600 mt-1">-15% + Port Offert</span>
+            </button>
+
+            <!-- 5 boxes (Max discount) -->
+            <button type="button" class="bundle-tier-btn p-3 rounded-xl border border-slate-200 hover:border-slate-300 text-center transition-all cursor-pointer" data-qty="5">
+              <div class="inline-block bg-rose-500 text-white text-[9px] font-black px-1.5 py-0.2 rounded-xs uppercase tracking-tight mb-1">
+                Max Éco
+              </div>
+              <span class="block text-xs font-bold text-slate-800">5 Boîtes</span>
+              <span class="block text-[10px] text-slate-500">5 mois de cure</span>
+              <span class="block text-[10px] font-black text-rose-600 mt-1">-30% Économie</span>
+            </button>
+          </div>
+        </div>
+
+        <input type="hidden" name="quantity" value="2" class="bundle-quantity-input">
+
+        <!-- Purchase Buttons -->
+        <div class="space-y-2.5 pt-2">
+          <button type="submit" class="w-full py-4 px-6 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-black text-sm sm:text-base rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer add-to-cart-ajax-btn">
+            <span>🛒</span>
+            <span>{{ 'products.product.add_to_cart' | t | default: 'Ajouter au Panier' }}</span>
+          </button>
+
+          {{ form | payment_button }}
+        </div>
+
+        <!-- Accepted Payment Methods -->
+        <div class="pt-2">
+          {% render 'payment-icons' %}
+        </div>
+      {% endform %}
+
+      <!-- Product Description Tabs -->
+      <div class="pt-6 border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+        <h3 class="font-bold text-slate-900 text-base">Description & Données Cliniques</h3>
+        {{ product.description }}
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Fiche Produit Principale",
+  "settings": []
+}
+{% endschema %}

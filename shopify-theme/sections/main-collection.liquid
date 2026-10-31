@@ -1,0 +1,27 @@
+<section class="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+  <div class="border-b border-slate-200 pb-6 mb-8 text-center sm:text-left">
+    <h1 class="text-3xl font-black text-slate-900">{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <div class="text-xs sm:text-sm text-slate-600 mt-2 max-w-2xl">
+        {{ collection.description }}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for product in collection.products %}
+      {% render 'product-card', product: product %}
+    {% else %}
+      <div class="col-span-full text-center py-12 text-slate-500 text-sm">
+        Aucun traitement trouvé dans cette collection.
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Principale",
+  "settings": []
+}
+{% endschema %}

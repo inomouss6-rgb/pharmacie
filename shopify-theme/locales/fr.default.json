@@ -1,0 +1,54 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Marqué \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "currency": "€",
+    "share": "Partager",
+    "search": "Rechercher un traitement...",
+    "continue_shopping": "Continuer vos achats"
+  },
+  "accessibility": {
+    "skip_to_content": "Aller au contenu principal",
+    "close": "Fermer"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Ajouter au panier",
+      "buy_now": "Commander Maintenant",
+      "sold_out": "Épuisé",
+      "unavailable": "Indisponible",
+      "regular_price": "Prix habituel",
+      "sale_price": "Prix promotionnel",
+      "quantity": "Quantité",
+      "dosage": "Dosage",
+      "pack_1": "1 boîte (1 mois de cure)",
+      "pack_2": "2 boîtes (2 mois de cure - Économisez 15%)",
+      "pack_5": "5 boîtes (5 mois de cure - Économisez 30%)",
+      "per_month": "/ mois",
+      "clinical_proven": "Efficacité clinique certifiée",
+      "cold_chain_warning": "Transport réfrigéré 2-8°C garanti sous emballage isotherme actif Chronofresh."
+    }
+  },
+  "cart": {
+    "title": "Votre Panier Médical Sécurisé",
+    "empty": "Votre panier est vide",
+    "subtotal": "Sous-total",
+    "shipping_at_checkout": "Frais de livraison calculés lors de l'étape suivante",
+    "free_shipping_eligible": "Félicitations ! Vous bénéficiez de la livraison express réfrigérée offerte 🚚",
+    "free_shipping_threshold": "Ajoutez un 2ème article pour débloquer la livraison gratuite !",
+    "checkout": "Finaliser Ma Commande Sécurisée",
+    "view_cart": "Voir le panier",
+    "terms_note": "Validation médicale obligatoire par un pharmacien diplômé avant expédition."
+  },
+  "urgency": {
+    "flash_title": "Offre flash expire dans :",
+    "low_stock": "Forte demande : seuls quelques stylos disponibles à ce tarif ce matin !"
+  },
+  "trust": {
+    "trustpilot_title": "Excellent sur Trustpilot",
+    "secure_payment_title": "Paiement 100% Sécurisé & Protégé",
+    "delivery_guarantee": "Toutes les commandes effectuées sur notre site sont expédiées sous chaîne du froid 2-8°C en 24/48h."
+  }
+}

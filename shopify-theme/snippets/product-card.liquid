@@ -1,0 +1,113 @@
+<div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col product-bundle-card" data-product-id="{{ product.id }}">
+  <!-- Top Badges -->
+  <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+    <div class="flex items-center gap-2">
+      <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-[11px] font-bold rounded-full">
+        Certifié UE
+      </span>
+      <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-[10px] font-semibold rounded border border-blue-200">
+        Chaîne du froid 2-8°C
+      </span>
+    </div>
+    {% render 'flash-sale-urgency', class: 'text-[10px]' %}
+  </div>
+
+  <div class="p-5 sm:p-6 flex-grow flex flex-col justify-between">
+    <!-- Image & Title -->
+    <div class="flex flex-col sm:flex-row gap-5 items-center mb-6">
+      <div class="w-32 h-32 sm:w-40 sm:h-40 flex-shrink-0 bg-slate-50 rounded-xl p-2 flex items-center justify-center border border-slate-100">
+        {%- if product.featured_image != blank -%}
+          <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title | escape }}" class="max-h-full object-contain mix-blend-multiply">
+        {%- else -%}
+          <img src="{{ '436_1_14ba29ab.jpeg' | asset_url }}" alt="{{ product.title | escape }}" class="max-h-full object-contain mix-blend-multiply">
+        {%- endif -%}
+      </div>
+
+      <div class="text-center sm:text-left flex-grow">
+        <h3 class="text-xl font-extrabold text-slate-900">{{ product.title }}</h3>
+        <p class="text-xs text-slate-500 mt-0.5">
+          {{ product.metafields.custom.molecule | default: 'Traitement injectable GLP-1 sous contrôle médical' }}
+        </p>
+
+        <div class="mt-2.5 flex flex-wrap items-center justify-center sm:justify-start gap-2">
+          <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+            ✓ Efficacité clinique certifiée
+          </span>
+          {% render 'trustpilot-badge', class: 'text-[10px]' %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Shopify Product Form -->
+    <form action="/cart/add" method="post" enctype="multipart/form-data" class="shopify-product-form space-y-4">
+      
+      <!-- Dosage Variant Selector -->
+      {% if product.variants.size > 1 %}
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
+            1. Sélectionnez votre dosage :
+          </label>
+          <select name="id" class="w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-slate-800 focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all cursor-pointer variant-selector">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
+                {{ variant.title }} &ndash; {{ variant.price | money }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      {% else %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      {% endif %}
+
+      <!-- Bundle Quantity Selection (1, 2, 5 boxes) -->
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
+          2. Choisissez la durée de votre cure :
+        </label>
+        <div class="grid grid-cols-3 gap-2">
+          <!-- 1 box -->
+          <button type="button" class="bundle-tier-btn p-2 rounded-xl border border-slate-200 hover:border-slate-300 text-center transition-all cursor-pointer" data-qty="1" data-discount="0">
+            <span class="block text-[11px] font-bold text-slate-800">1 Boîte</span>
+            <span class="block text-[10px] text-slate-500">1 mois</span>
+            <span class="block text-[9px] font-bold text-slate-400 mt-0.5">Prix standard</span>
+          </button>
+
+          <!-- 2 boxes (Popular) -->
+          <button type="button" class="bundle-tier-btn p-2 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 text-center transition-all ring-2 ring-emerald-600/20 active-tier cursor-pointer" data-qty="2" data-discount="15">
+            <div class="inline-block bg-amber-400 text-slate-950 text-[9px] font-black px-1.5 py-0.2 rounded-xs uppercase tracking-tight mb-0.5">
+              Populaire
+            </div>
+            <span class="block text-[11px] font-extrabold text-emerald-950">2 Boîtes</span>
+            <span class="block text-[10px] text-emerald-800 font-semibold">2 mois</span>
+            <span class="block text-[9px] font-black text-emerald-600 mt-0.5">-15% + Port Offert</span>
+          </button>
+
+          <!-- 5 boxes (Best value) -->
+          <button type="button" class="bundle-tier-btn p-2 rounded-xl border border-slate-200 hover:border-slate-300 text-center transition-all cursor-pointer" data-qty="5" data-discount="30">
+            <div class="inline-block bg-rose-500 text-white text-[9px] font-black px-1.5 py-0.2 rounded-xs uppercase tracking-tight mb-0.5">
+              Max Éco
+            </div>
+            <span class="block text-[11px] font-bold text-slate-800">5 Boîtes</span>
+            <span class="block text-[10px] text-slate-500">5 mois</span>
+            <span class="block text-[9px] font-black text-rose-600 mt-0.5">-30% Économie</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hidden quantity input for form submission -->
+      <input type="hidden" name="quantity" value="2" class="bundle-quantity-input">
+
+      <!-- Action Buttons -->
+      <div class="pt-2 flex flex-col sm:flex-row gap-2">
+        <button type="submit" class="flex-1 py-3 px-4 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-md shadow-emerald-600/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer add-to-cart-ajax-btn">
+          <span>🛒</span>
+          <span>{{ 'products.product.add_to_cart' | t | default: 'Ajouter au Panier' }}</span>
+        </button>
+
+        <a href="{{ product.url }}" class="py-3 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-colors flex items-center justify-center">
+          Détails & Avis
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

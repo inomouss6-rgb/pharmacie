@@ -1,0 +1,50 @@
+<div id="avis-clients" class="bg-slate-900 text-white py-4 overflow-hidden border-t border-b border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <div class="w-6 h-6 bg-[#00b67a] flex items-center justify-center rounded-xs">
+        <svg class="w-4 h-4 text-white fill-current" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+        </svg>
+      </div>
+      <span class="font-extrabold text-sm tracking-tight">Trustpilot</span>
+      <span class="text-xs text-emerald-400 font-bold">4.6 / 5 &bull; 7 426 avis</span>
+    </div>
+
+    <div class="overflow-hidden relative w-full">
+      <div class="animate-marquee flex items-center gap-10 whitespace-nowrap text-xs text-slate-300">
+        {% for i in (1..2) %}
+          <div class="flex items-center gap-2">
+            <span class="text-[#00b67a] font-bold">★★★★★</span>
+            <span class="text-white font-bold">Corinne M.</span>
+            <span>« Stylo Wegovy reçu en 24h avec la glacière Chronofresh encore parfaitement froide (-18 kg en 4 mois). »</span>
+          </div>
+
+          <span class="text-slate-600">&bull;</span>
+
+          <div class="flex items-center gap-2">
+            <span class="text-[#00b67a] font-bold">★★★★★</span>
+            <span class="text-white font-bold">Alexandre B.</span>
+            <span>« Service irréprochable avec ordonnance validée en ligne, Mounjaro m'a fait perdre 24 kg sans fringales. »</span>
+          </div>
+
+          <span class="text-slate-600">&bull;</span>
+
+          <div class="flex items-center gap-2">
+            <span class="text-[#00b67a] font-bold">★★★★★</span>
+            <span class="text-white font-bold">Valérie D.</span>
+            <span>« Pack 5 boîtes très économique, emballage inviolable et pochette isotherme offerte très pratique. »</span>
+          </div>
+
+          <span class="text-slate-600">&bull;</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bandeau Défilant Trustpilot",
+  "settings": []
+}
+{% endschema %}

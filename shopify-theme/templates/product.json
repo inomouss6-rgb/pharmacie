@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "before_after_gallery": {
+      "type": "before-after-gallery",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {}
+    },
+    "trust_banner": {
+      "type": "trust-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "before_after_gallery",
+    "faq",
+    "trust_banner"
+  ]
+}

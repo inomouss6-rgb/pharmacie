@@ -1,0 +1,364 @@
+<section id="transformations" class="py-12 lg:py-16 bg-slate-50 border-t border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+    <!-- Filter Bar (as shown in user specification screenshot) -->
+    <div class="flex justify-center mb-10">
+      <div class="bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200 inline-flex items-center gap-1 sm:gap-2 flex-wrap justify-center" id="TransformationFilters">
+        <button type="button" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer bg-slate-900 text-white shadow-sm filter-tab active" data-filter="all">
+          Toutes les photos (11)
+        </button>
+        <button type="button" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-slate-700 hover:bg-slate-100 filter-tab" data-filter="wegovy">
+          Wegovy (3)
+        </button>
+        <button type="button" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-slate-700 hover:bg-slate-100 filter-tab" data-filter="mounjaro">
+          Mounjaro (5)
+        </button>
+        <button type="button" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer text-slate-700 hover:bg-slate-100 filter-tab" data-filter="zepbound">
+          Zepbound (3)
+        </button>
+      </div>
+    </div>
+
+    <!-- 11 Transformations Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="TransformationsGrid">
+      
+      <!-- Case 1: Sarah -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="wegovy">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'images__33__aa461373.jpeg' | asset_url }}" alt="Transformation Sarah" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Wegovy® FlexTouch®
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -51 kg &bull; 8 mois
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Sarah (-51 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">8 mois de cure</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « Pendant des années, je n'osais plus me regarder dans un miroir ni poser sur les photos de famille avec mes enfants. Aujourd'hui, je revis enfin, pleine d'énergie et fière de porter ma fille sur mes épaules sans la moindre douleur. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Wegovy &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2: Élodie -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="mounjaro">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'images__37__42881ce3.jpeg' | asset_url }}" alt="Transformation Élodie" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Mounjaro® KwikPen®
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -32 kg &bull; 22 semaines
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Élodie (-32 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">22 semaines</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « Mon fils m'a prise dans ses petits bras et a pleuré en disant : “Maman, je peux enfin faire tout le tour de toi pour te faire un gros câlin”. Cette phrase a illuminé ma vie et m'a prouvé que chaque effort en valait la peine. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Mounjaro &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3: Audrey -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="mounjaro">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ '123-lbs-gone-mounjaro-changed-my-life-v0-qt8ifyi365vh1_88f551c6.jpg' | asset_url }}" alt="Transformation Audrey" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Mounjaro® KwikPen®
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -56 kg &bull; 7 mois
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Audrey (-56 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">7 mois de cure</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « Flotter dans mes anciens vêtements n'était qu'un rêve lointain qui semblait impossible après mes deux grossesses difficiles. Mes enfants ont désormais une maman souriante qui passe ses week-ends à courir avec eux au parc au lieu de rester couchée par épuisement. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Mounjaro &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 4: Julien -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="zepbound">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'du60f21m7a0g1_5f9a46dd.jpeg' | asset_url }}" alt="Transformation Julien" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Zepbound™ Auto-Injector
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -38 kg &bull; 6 mois
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Julien (-38 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">6 mois</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « Mon cardiologue m'avait prévenu que mon cœur ne supporterait pas dix années de plus à ce rythme alarmant. Retrouver cette silhouette athlétique a sauvé ma santé et m'a rendu la fierté d'être un père solide et présent pour mes deux garçons. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Zepbound &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 5: Martine -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="mounjaro">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'RW-11-08-WEIGHTLOSS-Mounjaro_4c2339_708821fc.webp' | asset_url }}" alt="Transformation Martine" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Mounjaro® KwikPen®
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -47 kg &bull; 9 mois
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Martine (-47 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">9 mois</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « À 58 ans, je pensais que le surpoids était une fatalité contre laquelle je ne pourrais plus jamais lutter. Quand mes petits-enfants m'ont vue courir pour attraper le ballon cet été, leurs éclats de rire ont été la plus belle récompense de mon existence. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Mounjaro &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 6: Camille -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="mounjaro">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'images__32__8773c5f1.jpeg' | asset_url }}" alt="Transformation Camille" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Mounjaro® KwikPen®
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -24 kg &bull; 11 semaines
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Camille (-24 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">11 semaines</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « En seulement 11 semaines, la sensation permanente d'étouffement et le bruit mental qui m'écrasaient ont totalement disparu. Mon mari me regarde à nouveau avec cette même lueur d'admiration et de tendresse que le jour de notre mariage. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Mounjaro &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 7: Stéphane -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="wegovy">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'sb6yp5hqpn9f1_19768cd9.jpeg' | asset_url }}" alt="Transformation Stéphane" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Wegovy® FlexTouch®
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -35 kg &bull; 24 semaines
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Stéphane (-35 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">24 semaines</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « L'apnée du sommeil me privait d'énergie et je passais mes journées dans un brouillard de fatigue qui pesait sur toute ma famille. Me réveiller aujourd'hui en pleine forme et pouvoir faire de longues randonnées avec mon épouse a littéralement sauvé notre couple. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Wegovy &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 8: Céline -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="zepbound">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'images__28__60d7cc14.jpeg' | asset_url }}" alt="Transformation Céline" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Zepbound™ Auto-Injector
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -29 kg &bull; 18 semaines
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Céline (-29 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">18 semaines</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « J'avais renoncé à m'aimer et je m'effaçais peu à peu dans mon quotidien de mère débordée. Réapprendre à apprécier mon corps a redonné un élan formidable à ma féminité et à la complicité au sein de notre foyer. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Zepbound &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 9: Nathalie -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="mounjaro">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'images__38__782c7914.jpeg' | asset_url }}" alt="Transformation Nathalie" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Mounjaro® KwikPen®
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -22 kg &bull; 82 jours
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Nathalie (-22 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">82 jours</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « À l'approche de la cinquantaine, mon métabolisme semblait totalement bloqué malgré d'innombrables régimes restrictifs. En moins de 3 mois de traitement régulier, ma silhouette s'est métamorphosée et je n'ai plus jamais honte de me mettre en maillot de bain lors des vacances en famille. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Mounjaro &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 10: David -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="wegovy">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'unnamed__1__03d930cf.png' | asset_url }}" alt="Transformation David" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Wegovy® FlexTouch®
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -42 kg &bull; 6 mois
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">David (-42 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">6 mois</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « Gravir les escaliers de la maison était devenu un calvaire au point que je devais m'arrêter au milieu pour reprendre mon souffle. Aujourd'hui, je fais du vélo avec mes enfants sans aucune douleur articulaire et nous partageons enfin de vrais moments d'aventure. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Wegovy &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 11: Maxime -->
+      <div class="case-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-category="zepbound">
+        <div class="relative bg-slate-100 aspect-3/4 overflow-hidden flex items-center justify-center">
+          <img src="{{ 'unnamed_557c80a7.png' | asset_url }}" alt="Transformation Maxime" class="w-full h-full object-cover">
+          <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
+            Zepbound™ Auto-Injector
+          </div>
+          <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-black px-2.5 py-1 rounded-full shadow-xs">
+            -34 kg &bull; 5 mois
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-extrabold text-slate-900 text-base">Maxime (-34 kg)</h4>
+              <span class="text-xs text-emerald-700 font-bold">5 mois</span>
+            </div>
+            <p class="text-xs text-slate-600 italic leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+              « Je me cachais derrière des costumes trop larges et je n'osais pas aller vers les autres tant ma timidité et mon surpoids me pesaient. Ce voyage au Japon avec mon sac à dos a été la preuve vivante de ma renaissance, le sourire aux lèvres face à l'avenir. »
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500 font-semibold">Témoignage patient certifié</span>
+            <a href="#catalogue" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+              Voir Zepbound &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Galerie 11 Avant / Après",
+  "settings": []
+}
+{% endschema %}

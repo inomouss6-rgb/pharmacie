@@ -1,0 +1,70 @@
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs transition-all">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4 sm:gap-8">
+    
+    <!-- Left: Brand Logo & Verified EU Badge -->
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-emerald-500 flex items-center justify-center text-white shadow-md shadow-emerald-700/20 group-hover:scale-105 transition-transform">
+          <span class="text-xl">🩺</span>
+        </div>
+        <div>
+          <span class="text-xl font-black text-slate-900 tracking-tight flex items-center gap-1">
+            Vital<span class="text-emerald-600">GLP</span>
+          </span>
+          <span class="block text-[10px] font-semibold text-emerald-700 -mt-1 tracking-wider uppercase">
+            Vivami France Santé
+          </span>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-1.5 pl-3 border-l border-slate-200 text-xs text-slate-600">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="font-medium">Pharmacie En Ligne Enregistrée UE</span>
+      </div>
+    </div>
+
+    <!-- Center: Quick Nav Links -->
+    <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold text-slate-700">
+      <a href="#hero" class="hover:text-emerald-600 transition-colors">Traitements</a>
+      <a href="#transformations" class="hover:text-emerald-600 transition-colors flex items-center gap-1">
+        <span>Avant / Après</span>
+        <span class="bg-rose-100 text-rose-700 text-[10px] font-black px-1.5 py-0.5 rounded-full">11 Récits</span>
+      </a>
+      <a href="#bundles" class="hover:text-emerald-600 transition-colors">Packs Bundles</a>
+      <a href="#avis-clients" class="hover:text-emerald-600 transition-colors">Avis Trustpilot</a>
+      <a href="#faq" class="hover:text-emerald-600 transition-colors">FAQ Médicale</a>
+    </nav>
+
+    <!-- Right: Cart & Flash Urgency Pill -->
+    <div class="flex items-center gap-3">
+      <div class="hidden sm:block">
+        {% render 'flash-sale-urgency' %}
+      </div>
+
+      <!-- Cart Button trigger -->
+      <button id="OpenCartDrawerBtn" class="relative p-2.5 rounded-xl bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-800 transition-colors flex items-center gap-2 font-bold text-xs cursor-pointer" aria-label="Ouvrir le panier">
+        <svg class="w-5 h-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span class="hidden sm:inline">Mon Panier</span>
+        <span id="HeaderCartBadge" class="w-5 h-5 rounded-full bg-emerald-600 text-white text-[11px] font-black flex items-center justify-center shadow-xs">
+          {{ cart.item_count | default: 0 }}
+        </span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "En-tête de Navigation",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu principal"
+    }
+  ]
+}
+{% endschema %}
