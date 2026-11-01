@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Heart, Sparkles, ShieldCheck, CheckCircle2, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { Product, BundleTier } from '../types';
+import { getAssetUrl, handleImageError } from '../utils/imageUrl';
 
 interface TransformationCase {
   id: string;
@@ -21,7 +22,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'wegovy',
     weightLost: '-51 kg',
     duration: '8 mois de cure',
-    image: '/public/assets/aistudio/images__33__aa461373.jpeg',
+    image: '/assets/aistudio/images__33__aa461373.jpeg',
     twoSentenceStory: "Pendant des années, je n'osais plus me regarder dans un miroir ni poser sur les photos de famille avec mes enfants. Aujourd'hui, je revis enfin, pleine d'énergie et fière de porter ma fille sur mes épaules sans la moindre douleur.",
   },
   {
@@ -31,7 +32,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'mounjaro',
     weightLost: '-32 kg',
     duration: '22 semaines',
-    image: '/public/assets/aistudio/images__37__42881ce3.jpeg',
+    image: '/assets/aistudio/images__37__42881ce3.jpeg',
     twoSentenceStory: "Mon fils m'a prise dans ses petits bras et a pleuré en disant : « Maman, je peux enfin faire tout le tour de toi pour te faire un gros câlin ». Cette phrase a illuminé ma vie et m'a prouvé que chaque effort en valait la peine.",
   },
   {
@@ -41,7 +42,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'mounjaro',
     weightLost: '-56 kg',
     duration: '7 mois',
-    image: '/public/assets/aistudio/123-lbs-gone-mounjaro-changed-my-life-v0-qt8ifyi365vh1_88f551c6.jpg',
+    image: '/assets/aistudio/123-lbs-gone-mounjaro-changed-my-life-v0-qt8ifyi365vh1_88f551c6.jpg',
     twoSentenceStory: "Flotter dans mes anciens vêtements n'était qu'un rêve lointain qui semblait impossible après mes deux grossesses difficiles. Mes enfants ont désormais une maman souriante qui passe ses week-ends à courir avec eux au parc au lieu de rester couchée par épuisement.",
   },
   {
@@ -51,7 +52,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'zepbound',
     weightLost: '-38 kg',
     duration: '6 mois',
-    image: '/public/assets/aistudio/du60f21m7a0g1_5f9a46dd.jpeg',
+    image: '/assets/aistudio/du60f21m7a0g1_5f9a46dd.jpeg',
     twoSentenceStory: "Mon cardiologue m'avait prévenu que mon cœur ne supporterait pas dix années de plus à ce rythme alarmant. Retrouver cette silhouette athlétique a sauvé ma santé et m'a rendu la fierté d'être un père solide et présent pour mes deux garçons.",
   },
   {
@@ -61,7 +62,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'mounjaro',
     weightLost: '-47 kg',
     duration: '9 mois',
-    image: '/public/assets/aistudio/RW-11-08-WEIGHTLOSS-Mounjaro_4c2339_708821fc.webp',
+    image: '/assets/aistudio/RW-11-08-WEIGHTLOSS-Mounjaro_4c2339_708821fc.webp',
     twoSentenceStory: "À 58 ans, je pensais que le surpoids était une fatalité contre laquelle je ne pourrais plus jamais lutter. Quand mes petits-enfants m'ont vue courir pour attraper le ballon cet été, leurs éclats de rire ont été la plus belle récompense de mon existence.",
   },
   {
@@ -71,7 +72,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'mounjaro',
     weightLost: '-24 kg',
     duration: '11 semaines',
-    image: '/public/assets/aistudio/images__32__8773c5f1.jpeg',
+    image: '/assets/aistudio/images__32__8773c5f1.jpeg',
     twoSentenceStory: "En seulement 11 semaines, la sensation permanente d'étouffement et le bruit mental qui m'écrasaient ont totalement disparu. Mon mari me regarde à nouveau avec cette même lueur d'admiration et de tendresse que le jour de notre mariage.",
   },
   {
@@ -81,7 +82,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'wegovy',
     weightLost: '-35 kg',
     duration: '24 semaines',
-    image: '/public/assets/aistudio/sb6yp5hqpn9f1_19768cd9.jpeg',
+    image: '/assets/aistudio/sb6yp5hqpn9f1_19768cd9.jpeg',
     twoSentenceStory: "L'apnée du sommeil me privait d'énergie et je passais mes journées dans un brouillard de fatigue qui pesait sur toute ma famille. Me réveiller aujourd'hui en pleine forme et pouvoir faire de longues randonnées avec mon épouse a littéralement sauvé notre couple.",
   },
   {
@@ -91,7 +92,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'zepbound',
     weightLost: '-29 kg',
     duration: '18 semaines',
-    image: '/public/assets/aistudio/images__28__60d7cc14.jpeg',
+    image: '/assets/aistudio/images__28__60d7cc14.jpeg',
     twoSentenceStory: "J'avais renoncé à m'aimer et je m'effaçais peu à peu dans mon quotidien de mère débordée. Réapprendre à apprécier mon corps a redonné un élan formidable à ma féminité et à la complicité au sein de notre foyer.",
   },
   {
@@ -101,7 +102,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'mounjaro',
     weightLost: '-22 kg',
     duration: '82 jours',
-    image: '/public/assets/aistudio/images__38__782c7914.jpeg',
+    image: '/assets/aistudio/images__38__782c7914.jpeg',
     twoSentenceStory: "À l'approche de la cinquantaine, mon métabolisme semblait totalement bloqué malgré d'innombrables régimes restrictifs. En moins de 3 mois de traitement régulier, ma silhouette s'est métamorphosée et je n'ai plus jamais honte de me mettre en maillot de bain lors des vacances en famille.",
   },
   {
@@ -111,7 +112,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'wegovy',
     weightLost: '-42 kg',
     duration: '6 mois',
-    image: '/public/assets/aistudio/unnamed__1__03d930cf.png',
+    image: '/assets/aistudio/unnamed__1__03d930cf.png',
     twoSentenceStory: "Gravir les escaliers de la maison était devenu un calvaire au point que je devais m'arrêter au milieu pour reprendre mon souffle. Aujourd'hui, je fais du vélo avec mes enfants sans aucune douleur articulaire et nous partageons enfin de vrais moments d'aventure.",
   },
   {
@@ -121,7 +122,7 @@ const ELEVEN_TRANSFORMATIONS: TransformationCase[] = [
     productId: 'zepbound',
     weightLost: '-34 kg',
     duration: '5 mois',
-    image: '/public/assets/aistudio/unnamed_557c80a7.png',
+    image: '/assets/aistudio/unnamed_557c80a7.png',
     twoSentenceStory: "Je me cachais derrière des costumes trop larges et je n'osais pas aller vers les autres tant ma timidité et mon surpoids me pesaient. Ce voyage au Japon avec mon sac à dos a été la preuve vivante de ma renaissance, le sourire aux lèvres face à l'avenir.",
   },
 ];
@@ -201,9 +202,11 @@ export const BeforeAfterTrustpilotSection: React.FC<BeforeAfterTrustpilotSection
               {/* Photo Before / After with tags */}
               <div className="relative bg-slate-100 overflow-hidden">
                 <img
-                  src={item.image}
+                  src={getAssetUrl(item.image)}
                   alt={`Avant Après ${item.name}`}
                   referrerPolicy="no-referrer"
+                  onError={handleImageError}
+                  loading="eager"
                   className="w-full h-80 object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                 />
 

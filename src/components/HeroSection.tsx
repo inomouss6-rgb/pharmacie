@@ -1,6 +1,7 @@
 import React from 'react';
 import { TrustpilotBadge } from './TrustpilotBadge';
 import { ShieldCheck, Snowflake, Sparkles, MessageCircle, ArrowRight, Zap, Check } from 'lucide-react';
+import { getAssetUrl, handleImageError } from '../utils/imageUrl';
 
 interface HeroSectionProps {
   onExploreBundles: () => void;
@@ -126,9 +127,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <div className="w-16 h-16 rounded-lg bg-slate-100 overflow-hidden shrink-0 flex items-center justify-center border border-slate-200">
                   <img
-                    src="/public/assets/aistudio/436_1_14ba29ab.jpeg"
+                    src={getAssetUrl('/assets/aistudio/436_1_14ba29ab.jpeg')}
                     alt="Wegovy 1mg FlexTouch"
                     referrerPolicy="no-referrer"
+                    onError={handleImageError}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                   />
                 </div>
@@ -153,9 +156,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <div className="w-16 h-16 rounded-lg bg-slate-100 overflow-hidden shrink-0 flex items-center justify-center border border-slate-200">
                   <img
-                    src="/public/assets/aistudio/Mounjaro-KwikPen-Display_a0f5e31b.png"
+                    src={getAssetUrl('/assets/aistudio/Mounjaro-KwikPen-Display_a0f5e31b.png')}
                     alt="Mounjaro KwikPen"
                     referrerPolicy="no-referrer"
+                    onError={handleImageError}
+                    loading="lazy"
                     className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform"
                   />
                 </div>
@@ -204,9 +209,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="flex items-center gap-2.5">
                   <div className="w-10 h-10 rounded-lg overflow-hidden border border-slate-700 shrink-0">
                     <img
-                      src="/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg"
+                      src={getAssetUrl('/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg')}
                       alt="Témoignage réel"
                       referrerPolicy="no-referrer"
+                      onError={handleImageError}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </div>

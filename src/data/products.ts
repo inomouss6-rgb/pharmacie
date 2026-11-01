@@ -13,7 +13,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 1420,
     doses: ['0.25 mg (Initiation)', '0.5 mg (Progression)', '1.0 mg (Maintien)', '1.7 mg (Intensif)', '2.4 mg (Dose Maximale)'],
     defaultDose: '1.0 mg (Maintien)',
-    image: '/public/assets/aistudio/436_1_14ba29ab.jpeg',
+    image: '/assets/aistudio/436_1_14ba29ab.jpeg',
     colorTheme: {
       primary: '#0284c7', // Sky / Cyan
       light: '#e0f2fe',
@@ -100,9 +100,9 @@ export const PRODUCTS: Product[] = [
         initialWeight: '118 kg',
         finalWeight: '61 kg',
         waistLost: '-38 cm',
-        beforeImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
-        afterImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
-        compositeImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        beforeImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        afterImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        compositeImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
         quote: "« Je revis littéralement. Pour la première fois depuis 10 ans, j'ai accompagné mes enfants à vélo sans devoir m'asseoir après 5 minutes. »",
         familyStory: "Mes deux filles me disaient souvent 'Maman est toujours fatiguée'. Aujourd'hui, je cours avec elles au parc, mon mari me regarde avec des yeux brillants comme au premier jour. C'est plus qu'une perte de poids, c'est une renaissance familiale.",
         verifiedMedical: true
@@ -117,8 +117,8 @@ export const PRODUCTS: Product[] = [
         initialWeight: '89 kg',
         finalWeight: '65 kg',
         waistLost: '-21 cm',
-        beforeImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
-        afterImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        beforeImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        afterImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
         quote: "« Wegovy a mis fin au bruit mental permanent lié à la nourriture. Les repas en famille sont redevenus un moment de pur plaisir sans compulsion. »",
         familyStory: "À table, je ne suis plus obsédée par me resservir trois fois. Mon conjoint a même commencé à manger plus sainement avec moi. Nos dimanches sont désormais remplis de randonnées avec les enfants !",
         verifiedMedical: true
@@ -137,7 +137,7 @@ export const PRODUCTS: Product[] = [
     reviewCount: 1890,
     doses: ['2.5 mg (Départ)', '5.0 mg (Élévation)', '7.5 mg (Intermédiaire)', '10 mg (Cible)', '12.5 mg (Avancé)', '15 mg (Puissance Maximale)'],
     defaultDose: '12.5 mg (Avancé)',
-    image: '/public/assets/aistudio/Mounjaro-KwikPen-Display_a0f5e31b.png',
+    image: '/assets/aistudio/Mounjaro-KwikPen-Display_a0f5e31b.png',
     colorTheme: {
       primary: '#4338ca', // Indigo / Purple
       light: '#e0e7ff',
@@ -224,9 +224,9 @@ export const PRODUCTS: Product[] = [
         initialWeight: '112 kg',
         finalWeight: '76 kg',
         waistLost: '-29 cm',
-        beforeImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
-        afterImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
-        compositeImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        beforeImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        afterImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        compositeImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
         quote: "« Mounjaro a été un tournant radical. Non seulement j'ai perdu 36 kg, mais ma tension artérielle est revenue à la normale. »",
         familyStory: "Mon fils de 7 ans m'a pris dans ses bras et a réussi à faire le tour complet avec ses petits bras en criant 'Papa, je peux te serrer tout entier !'. J'en ai pleuré de joie avec ma femme. Nous avons retrouvé notre complicité de jeunes mariés.",
         verifiedMedical: true
@@ -241,8 +241,8 @@ export const PRODUCTS: Product[] = [
         initialWeight: '104 kg',
         finalWeight: '77 kg',
         waistLost: '-24 cm',
-        beforeImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
-        afterImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        beforeImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        afterImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
         quote: "« Douleurs articulaires disparues, énergie décuplée. Mes collègues et mes proches n'en revenaient pas lors de nos vacances d'été. »",
         familyStory: "Toute la famille sourit à nouveau lors des réunions. Je peux enfin jouer au foot dans le jardin avec mes petits-enfants sans être épuisé.",
         verifiedMedical: true
@@ -262,7 +262,7 @@ export const PRODUCTS: Product[] = [
     doses: ['2.5 mg / 0.5 mL', '5.0 mg / 0.5 mL', '7.5 mg / 0.5 mL', '10 mg / 0.5 mL', '12.5 mg / 0.5 mL', '15 mg / 0.5 mL'],
     defaultDose: '5.0 mg / 0.5 mL',
     // Using a clear graphic presentation matching Lilly Zepbound branding
-    image: '/public/assets/aistudio/Mounjaro-KwikPen-Display_a0f5e31b.png', // high resolution display asset
+    image: '/assets/aistudio/Mounjaro-KwikPen-Display_a0f5e31b.png', // high resolution display asset
     colorTheme: {
       primary: '#0d9488', // Teal / Emerald
       light: '#ccfbf1',
@@ -348,9 +348,9 @@ export const PRODUCTS: Product[] = [
         initialWeight: '96 kg',
         finalWeight: '65 kg',
         waistLost: '-26 cm',
-        beforeImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
-        afterImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
-        compositeImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        beforeImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        afterImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        compositeImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
         quote: "« Après 3 grossesses, je pensais ne plus jamais retrouver mon corps. Zepbound a fonctionné là où tous les régimes stricts avaient échoué. »",
         familyStory: "Notre photo de famille sur la plage l'été dernier est magnifique. Pour la première fois depuis 12 ans, je ne me cache plus derrière les enfants sur les photos de vacances ! Nous sommes tellement plus heureux au quotidien.",
         verifiedMedical: true
@@ -365,8 +365,8 @@ export const PRODUCTS: Product[] = [
         initialWeight: '124 kg',
         finalWeight: '82 kg',
         waistLost: '-34 cm',
-        beforeImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
-        afterImg: '/public/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        beforeImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
+        afterImg: '/assets/aistudio/Screenshot_2026-10-29-04-23-05-488_com.android.chrome_bd20d3af.jpg',
         quote: "« J'ai perdu 42 kg sans jamais souffrir de la faim. L'injection hebdomadaire est tellement facile avec l'auto-injecteur. »",
         familyStory: "Je peux porter mes enfants sur mes épaules pendant des heures au zoo. Ma femme me dit qu'elle a l'impression d'avoir un nouveau mari plein de vie.",
         verifiedMedical: true

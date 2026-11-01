@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Product, BundleTier } from '../types';
 import { Search, ChevronLeft, ChevronRight, Check, ShieldCheck, Snowflake, X, Sparkles } from 'lucide-react';
 import { FlashSaleCountdown } from './FlashSaleCountdown';
+import { getAssetUrl, handleImageError } from '../utils/imageUrl';
 
 interface VivamiStyleHeroProps {
   products: Product[];
@@ -152,9 +153,11 @@ export const VivamiStyleHero: React.FC<VivamiStyleHeroProps> = ({
 
             {/* Product Image */}
             <img
-              src={currentProduct.image}
+              src={getAssetUrl(currentProduct.image)}
               alt={currentProduct.name}
               referrerPolicy="no-referrer"
+              onError={handleImageError}
+              loading="eager"
               className="max-h-[220px] w-auto object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
             />
 

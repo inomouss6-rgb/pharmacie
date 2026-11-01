@@ -13,7 +13,6 @@ import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { QuickBuyModal } from './components/QuickBuyModal';
 import { WhatsAppModal } from './components/WhatsAppModal';
-import { ShopifyThemeModal } from './components/ShopifyThemeModal';
 import { StickyActionBars } from './components/StickyActionBars';
 import { LiveSalesNotifier } from './components/LiveSalesNotifier';
 import { Sparkles, ShieldCheck, Snowflake } from 'lucide-react';
@@ -25,7 +24,7 @@ export default function App() {
       productId: 'wegovy',
       productName: 'Wegovy® FlexTouch®',
       molecule: 'Sémaglutide',
-      image: '/public/assets/aistudio/436_1_14ba29ab.jpeg',
+      image: '/assets/aistudio/436_1_14ba29ab.jpeg',
       dose: '0.25 mg (Initiation)',
       tier: PRODUCTS[0].bundleTiers[1], // 2 boxes bundle (-15%)
       count: 1,
@@ -36,7 +35,6 @@ export default function App() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isQuickBuyOpen, setIsQuickBuyOpen] = useState(false);
   const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false);
-  const [isShopifyModalOpen, setIsShopifyModalOpen] = useState(false);
   const [whatsAppCustomText, setWhatsAppCustomText] = useState('');
 
   // Cart operations
@@ -122,36 +120,7 @@ export default function App() {
         onOpenCart={() => setIsCartOpen(true)}
         onOpenWhatsApp={() => handleOpenWhatsApp()}
         onSelectProduct={handleSelectProduct}
-        onOpenShopifyExport={() => setIsShopifyModalOpen(true)}
       />
-
-      {/* Bannière de Téléchargement Direct Thème Shopify 2.0 */}
-      <div className="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white border-b border-emerald-500/30 px-4 py-2.5 shadow-sm">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2.5 text-center sm:text-left">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span className="font-semibold text-slate-200">
-              Fichier d'installation Shopify OS 2.0 généré : <strong className="text-emerald-400 font-bold">vitalglp-shopify-theme.zip</strong> (7,3 Mo &bull; 55 fichiers vérifiés)
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <a
-              href="/vitalglp-shopify-theme.zip"
-              download="vitalglp-shopify-theme.zip"
-              className="px-3.5 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-lg transition-all flex items-center gap-1.5 shadow-xs cursor-pointer"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Télécharger le Thème ZIP</span>
-            </a>
-            <button
-              onClick={() => setIsShopifyModalOpen(true)}
-              className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-lg transition-all cursor-pointer border border-white/15"
-            >
-              Guide d'installation Shopify
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* 2. Vivami-Style Hero Homepage Section (as requested: https://fr.vivami.co/perte-de-poids/wegovy) */}
       <VivamiStyleHero
@@ -255,11 +224,6 @@ export default function App() {
         isOpen={isWhatsAppOpen}
         onClose={() => setIsWhatsAppOpen(false)}
         initialMessage={whatsAppCustomText}
-      />
-
-      <ShopifyThemeModal
-        isOpen={isShopifyModalOpen}
-        onClose={() => setIsShopifyModalOpen(false)}
       />
     </div>
   );

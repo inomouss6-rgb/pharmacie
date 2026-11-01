@@ -3,6 +3,7 @@ import { PRODUCTS } from '../data/products';
 import { Product, BundleTier } from '../types';
 import { Check, ShieldCheck, Zap, Sparkles, Snowflake, ArrowRight } from 'lucide-react';
 import { FlashSaleCountdown } from './FlashSaleCountdown';
+import { getAssetUrl, handleImageError } from '../utils/imageUrl';
 
 interface BundlesSectionProps {
   onDirectBuy: (product: Product, dose: string, tier: BundleTier) => void;
@@ -115,9 +116,11 @@ export const BundlesSection: React.FC<BundlesSectionProps> = ({
                   {/* Thumbnail */}
                   <div className="h-36 rounded-xl bg-slate-900/80 flex items-center justify-center p-3 overflow-hidden border border-slate-700/60">
                     <img
-                      src={prod.image}
+                      src={getAssetUrl(prod.image)}
                       alt={prod.name}
                       referrerPolicy="no-referrer"
+                      onError={handleImageError}
+                      loading="lazy"
                       className="max-h-full object-contain drop-shadow"
                     />
                   </div>

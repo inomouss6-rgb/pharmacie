@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Product, BundleTier } from '../types';
 import { TrustpilotBadge } from './TrustpilotBadge';
 import { FlashSaleCountdown } from './FlashSaleCountdown';
+import { getAssetUrl, handleImageError } from '../utils/imageUrl';
 import {
   Check,
   ShieldCheck,
@@ -88,9 +89,11 @@ export const ProductCardWithBundle: React.FC<ProductCardWithBundleProps> = ({
 
             {/* Product Image */}
             <img
-              src={product.image}
+              src={getAssetUrl(product.image)}
               alt={product.name}
               referrerPolicy="no-referrer"
+              onError={handleImageError}
+              loading="lazy"
               className="max-h-[280px] w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
             />
 

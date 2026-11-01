@@ -1,6 +1,7 @@
 import React from 'react';
 import { CartItem } from '../types';
 import { X, Trash2, ShieldCheck, Snowflake, ArrowRight, ShoppingBag, Plus, Minus } from 'lucide-react';
+import { getAssetUrl, handleImageError } from '../utils/imageUrl';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -83,9 +84,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 <div className="flex items-start gap-3">
                   <div className="w-16 h-16 rounded-lg bg-slate-50 border border-slate-200 p-1 flex items-center justify-center shrink-0">
                     <img
-                      src={item.image}
+                      src={getAssetUrl(item.image)}
                       alt={item.productName}
                       referrerPolicy="no-referrer"
+                      onError={handleImageError}
+                      loading="lazy"
                       className="max-h-full object-contain"
                     />
                   </div>
