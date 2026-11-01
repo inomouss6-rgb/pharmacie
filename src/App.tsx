@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PRODUCTS } from './data/products';
 import { Product, BundleTier, CartItem } from './types';
 import { Header } from './components/Header';
@@ -15,9 +15,60 @@ import { QuickBuyModal } from './components/QuickBuyModal';
 import { WhatsAppModal } from './components/WhatsAppModal';
 import { StickyActionBars } from './components/StickyActionBars';
 import { LiveSalesNotifier } from './components/LiveSalesNotifier';
+import { AdminDashboard } from './components/admin/AdminDashboard';
+import { AdminLogin } from './components/admin/AdminLogin';
+import { adminStore } from './services/adminStore';
 import { Sparkles, ShieldCheck, Snowflake } from 'lucide-react';
 
 export default function App() {
+  // Secret admin routing check (?view=admin, ?admin=true, #admin, /admin)
+  const checkIsAdmin = () => {
+    if (typeof window === 'undefined') return false;
+    const search = window.location.search.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    const pathname = window.location.pathname.toLowerCase();
+    return search.includes('admin') || hash.includes('admin') || pathname === '/admin' || pathname.startsWith('/admin');
+  };
+
+  const [isAdminView, setIsAdminView] = useState<boolean>(checkIsAdmin);
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return (
+      localStorage.getItem('vital_admin_auth') === 'authenticated' ||
+      sessionStorage.getItem('vital_admin_auth') === 'authenticated'
+    );
+  });
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      setIsAdminView(checkIsAdmin());
+    };
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
+  }, []);
+
+  const handleAdminLogout = () => {
+    localStorage.removeItem('vital_admin_auth');
+    sessionStorage.removeItem('vital_admin_auth');
+    setIsAdminAuthenticated(false);
+  };
+
+  const handleExitAdmin = () => {
+    try {
+      window.history.pushState({}, '', '/');
+    } catch (e) {
+      // fallback
+    }
+    if (window.location.hash.includes('admin')) {
+      window.location.hash = '';
+    }
+    setIsAdminView(false);
+  };
+
   const [currentProduct, setCurrentProduct] = useState<Product>(PRODUCTS[0]); // Wegovy default like https://fr.vivami.co/perte-de-poids/wegovy
   const [cart, setCart] = useState<CartItem[]>([
     {
@@ -111,6 +162,24 @@ export default function App() {
   };
 
   const totalCartCount = cart.reduce((sum, item) => sum + item.count, 0);
+
+  // If Admin portal requested via private link (/admin, #admin, ?view=admin)
+  if (isAdminView) {
+    if (!isAdminAuthenticated) {
+      return (
+        <AdminLogin
+          onLoginSuccess={() => setIsAdminAuthenticated(true)}
+          onExitToStore={handleExitAdmin}
+        />
+      );
+    }
+    return (
+      <AdminDashboard
+        onLogout={handleAdminLogout}
+        onExitToStore={handleExitAdmin}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-['Plus_Jakarta_Sans',sans-serif]">

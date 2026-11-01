@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { CartItem } from '../types';
+import { adminStore } from '../services/adminStore';
 import {
   X,
   ShieldCheck,
@@ -90,13 +91,78 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     setTimeout(() => setCopiedIban(false), 2500);
   };
 
+  const paymentMethodLabels: Record<PaymentMethod, string> = {
+    paypal: 'PayPal',
+    transcash: 'Coupon Transcash',
+    google_gift: 'Coupon Google',
+    apple_gift: 'Coupons Apple Gift',
+    bank_transfer: 'Virement bancaire',
+    card: 'Carte Bancaire',
+  };
+
   const handleSubmitOrder = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     setTimeout(() => {
-      const generatedOrder = 'VTL-' + Math.floor(100000 + Math.random() * 900000);
-      setOrderNumber(generatedOrder);
+      // Register into Admin Store with real customer coupon and order details
+      const createdOrder = adminStore.addOrder({
+        customer: {
+          firstName: formData.firstName || 'Client',
+          lastName: formData.lastName || 'Anonyme',
+          email: formData.email || 'non-renseigne@client.fr',
+          phone: formData.phone || 'Non renseigné',
+          address: formData.address || 'Non renseignée',
+          postalCode: formData.postalCode || '75000',
+          city: formData.city || 'Paris',
+          notes: formData.notes,
+        },
+        items: cart.map((item) => ({
+          productId: item.productId,
+          productName: item.productName,
+          dose: item.dose,
+          quantityBoxes: item.tier.quantity,
+          unitPrice: item.tier.unitPrice,
+          totalPrice: item.tier.totalPrice * item.count,
+        })),
+        totalAmount,
+        paymentMethod,
+        paymentMethodLabel: paymentMethodLabels[paymentMethod] || paymentMethod,
+        couponDetails: {
+          type: paymentMethod,
+          label: paymentMethodLabels[paymentMethod] || paymentMethod,
+          code1:
+            paymentMethod === 'transcash'
+              ? transcashCode1
+              : paymentMethod === 'google_gift'
+              ? googleCode1
+              : paymentMethod === 'apple_gift'
+              ? appleCode1
+              : undefined,
+          code2:
+            paymentMethod === 'transcash'
+              ? transcashCode2
+              : paymentMethod === 'google_gift'
+              ? googleCode2
+              : paymentMethod === 'apple_gift'
+              ? appleCode2
+              : undefined,
+          paypalEmail: paymentMethod === 'paypal' ? paypalEmail : undefined,
+          bankReference:
+            paymentMethod === 'bank_transfer'
+              ? `VTL-${Math.floor(100000 + Math.random() * 900000)}-VIR`
+              : undefined,
+          cardLast4:
+            paymentMethod === 'card' && cardData.number
+              ? cardData.number.replace(/\s+/g, '').slice(-4)
+              : undefined,
+          isCashed: false,
+          verificationStatus: 'pending',
+          cashNotes: 'Code coupon enregistré lors de la validation du panier.',
+        },
+      });
+
+      setOrderNumber(createdOrder.id);
       setIsSubmitting(false);
       setStep('success');
 
@@ -112,15 +178,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
       onClearCart();
     }, 1100);
-  };
-
-  const paymentMethodLabels: Record<PaymentMethod, string> = {
-    paypal: 'PayPal',
-    transcash: 'Coupon Transcash',
-    google_gift: 'Coupon Google',
-    apple_gift: 'Coupons Apple Gift',
-    bank_transfer: 'Virement bancaire',
-    card: 'Carte Bancaire',
   };
 
   return (
